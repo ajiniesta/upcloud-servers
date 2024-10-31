@@ -84,8 +84,11 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      env:
+      with:
 	UPCLOUD_USERNAME: ${{ secrets.UPCLOUD_USERNAME }}
+      	UPCLOUD_PASSWORD: ${{ secrets.UPCLOUD_PASSWORD }}
+      env:
+      	UPCLOUD_USERNAME: ${{ secrets.UPCLOUD_USERNAME }}
 	UPCLOUD_PASSWORD: ${{ secrets.UPCLOUD_PASSWORD }}
       run: terraform plan -input=false
 
