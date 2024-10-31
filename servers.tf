@@ -26,6 +26,6 @@ resource "upcloud_server" "example" {
   login {
     user = "antonio"
 
-    keys = [ var.ssh_key_ajiniesta ]
+    keys = [var.ssh_key_ajiniesta]
   }
 }
