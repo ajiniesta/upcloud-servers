@@ -42,7 +42,7 @@
 #       with:
 #         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-name: 'Terraform'
+name: 'Terraform Create'
 
 on:
   push:
@@ -84,6 +84,9 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
+      env:
+	UPCLOUD_USERNAME: ${{ secrets.UPCLOUD_USERNAME }}
+	UPCLOUD_PASSWORD: ${{ secrets.UPCLOUD_PASSWORD }}
       run: terraform plan -input=false
 
       # On push to "main", build or change infrastructure according to Terraform configuration files
